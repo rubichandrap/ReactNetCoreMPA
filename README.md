@@ -23,17 +23,47 @@ This project features a bold, vibrant design system with:
 
 ### **Design Screenshots**
 
-- **[Homepage Design](docs/design-proof/screenshots/homepage-design.png)** - Neubrutalism homepage with gradient hero section and feature cards
-- **[About Page Design](docs/design-proof/screenshots/about-page-design.png)** - Technology stack showcase with three-column layout
-- **[Contact Page Design](docs/design-proof/screenshots/contact-page-design.png)** - Contact form with neubrutalism styling and contact information
-- **[Login Page Design](docs/design-proof/screenshots/login-page-design.png)** - Authentication form with demo credentials section
+#### Homepage Design
+
+![Homepage Design](docs/design-proof/screenshots/homepage-design.png)
+_Neubrutalism homepage with gradient hero section and feature cards_
+
+#### About Page Design
+
+![About Page Design](docs/design-proof/screenshots/about-page-design.png)
+_Technology stack showcase with three-column layout_
+
+#### Contact Page Design
+
+![Contact Page Design](docs/design-proof/screenshots/contact-page-design.png)
+_Contact form with neubrutalism styling and contact information_
+
+#### Login Page Design
+
+![Login Page Design](docs/design-proof/screenshots/login-page-design.png)
+_Authentication form with demo credentials section_
 
 ### **JavaScript Loading Analysis**
 
-- **[Home Route JS Loading](docs/design-proof/screenshots/network-analysis/home-route-js.png)** - Network tab showing JS loading for home route
-- **[About Route JS Loading](docs/design-proof/screenshots/network-analysis/about-route-js.png)** - Network tab showing JS loading for about route
-- **[Contact Route JS Loading](docs/design-proof/screenshots/network-analysis/contact-route-js.png)** - Network tab showing JS loading for contact route
-- **[Login Route JS Loading](docs/design-proof/screenshots/network-analysis/login-route-js.png)** - Network tab showing JS loading for login route
+#### Home Route JS Loading
+
+![Home Route JS Loading](docs/design-proof/screenshots/network-analysis/home-route-js.png)
+_Network tab showing JS loading for home route_
+
+#### About Route JS Loading
+
+![About Route JS Loading](docs/design-proof/screenshots/network-analysis/about-route-js.png)
+_Network tab showing JS loading for about route_
+
+#### Contact Route JS Loading
+
+![Contact Route JS Loading](docs/design-proof/screenshots/network-analysis/contact-route-js.png)
+_Network tab showing JS loading for contact route_
+
+#### Login Route JS Loading
+
+![Login Route JS Loading](docs/design-proof/screenshots/network-analysis/login-route-js.png)
+_Network tab showing JS loading for login route_
 
 ### **Key Features Demonstrated**
 
