@@ -41,17 +41,17 @@ const Contact: React.FC = () => {
       <main className="container mx-auto px-6 py-16">
         {/* Page Header */}
         <div className="bg-white border-4 border-black shadow-neubrutalism p-8 mb-8 text-center">
-          <h1 className="text-5xl font-black text-black mb-4">Contact Us</h1>
-          <p className="text-2xl font-semibold text-black">Get in touch with our development team</p>
+          <h1 className="text-3xl font-black text-black mb-4">Contact Us</h1>
+          <p className="text-base font-semibold text-black">Get in touch with our development team</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Form */}
           <div className="bg-white border-4 border-black shadow-neubrutalism p-8">
-            <h2 className="text-3xl font-bold text-black mb-6">Send us a message</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Send us a message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-lg font-semibold text-black mb-2">Name:</label>
+                <label htmlFor="name" className="block text-base font-semibold text-black mb-2">Name:</label>
                 <input
                   type="text"
                   id="name"
@@ -59,12 +59,12 @@ const Contact: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-lg"
+                  className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-base"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-lg font-semibold text-black mb-2">Email:</label>
+                <label htmlFor="email" className="block text-base font-semibold text-black mb-2">Email:</label>
                 <input
                   type="email"
                   id="email"
@@ -72,12 +72,12 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-lg"
+                  className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-base"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-lg font-semibold text-black mb-2">Message:</label>
+                <label htmlFor="message" className="block text-base font-semibold text-black mb-2">Message:</label>
                 <textarea
                   id="message"
                   name="message"
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-lg resize-vertical"
+                  className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-base resize-vertical"
                 />
               </div>
               
@@ -100,30 +100,30 @@ const Contact: React.FC = () => {
 
           {/* Contact Info */}
           <div className="bg-neubrutalism-blue border-4 border-black shadow-neubrutalism p-8">
-            <h2 className="text-3xl font-bold text-black mb-6">Get in Touch</h2>
+            <h2 className="text-2xl font-bold text-black mb-6">Get in Touch</h2>
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <div className="bg-neubrutalism-yellow border-4 border-black shadow-neubrutalism-sm p-4 text-2xl">📧</div>
                 <div>
-                  <h3 className="text-xl font-bold text-black">Email</h3>
-                  <p className="text-lg font-semibold text-black">admin@example.com</p>
+                  <h3 className="text-lg font-bold text-black">Email</h3>
+                  <p className="text-base font-semibold text-black">admin@example.com</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
                 <div className="bg-neubrutalism-pink border-4 border-black shadow-neubrutalism-sm p-4 text-2xl">🌐</div>
                 <div>
-                  <h3 className="text-xl font-bold text-black">Website</h3>
-                  <p className="text-lg font-semibold text-black">ReactNetCorePOC.com</p>
+                  <h3 className="text-lg font-bold text-black">Website</h3>
+                  <p className="text-base font-semibold text-black">ReactNetCorePOC.com</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
                 <div className="bg-neubrutalism-green border-4 border-black shadow-neubrutalism-sm p-4 text-2xl">💼</div>
                 <div>
-                  <h3 className="text-xl font-bold text-black">Company</h3>
-                  <p className="text-lg font-semibold text-black">ReactNetCorePOC Development</p>
+                  <h3 className="text-lg font-bold text-black">Company</h3>
+                  <p className="text-base font-semibold text-black">ReactNetCorePOC Development</p>
                 </div>
               </div>
             </div>

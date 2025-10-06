@@ -1,0 +1,23 @@
+# Gitignore for design proof documentation
+# This file ensures proper handling of image files
+
+# Allow all image files in this directory
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
+!*.svg
+
+# Ignore temporary files
+*.tmp
+*.temp
+*~
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

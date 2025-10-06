@@ -27,36 +27,36 @@ const Dashboard: React.FC = () => {
       <main className="container mx-auto px-6 py-16">
         {/* Dashboard Header */}
         <div className="bg-neubrutalism-blue border-4 border-black shadow-neubrutalism p-8 mb-8 text-center">
-          <h1 className="text-4xl font-black text-black mb-4">Welcome to Dashboard</h1>
-          <p className="text-xl font-semibold text-black">Hello, Admin! Here's your ReactNetCorePOC dashboard.</p>
+          <h1 className="text-3xl font-black text-black mb-4">Welcome to Dashboard</h1>
+          <p className="text-lg font-semibold text-black">Hello, Admin! Here's your ReactNetCorePOC dashboard.</p>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className={`bg-neubrutalism-pink border-4 border-black shadow-neubrutalism-sm p-6 text-center transition-all duration-500 ${isAnimating ? 'animate-bounce' : ''}`}>
-            <div className="text-4xl font-black text-white mb-2">{stats.projects}</div>
-            <div className="text-lg font-semibold text-white">Projects</div>
+            <div className="text-3xl font-black text-white mb-2">{stats.projects}</div>
+            <div className="text-base font-semibold text-white">Projects</div>
           </div>
           
           <div className={`bg-neubrutalism-green border-4 border-black shadow-neubrutalism-sm p-6 text-center transition-all duration-500 ${isAnimating ? 'animate-bounce' : ''}`}>
-            <div className="text-4xl font-black text-black mb-2">{stats.users}</div>
-            <div className="text-lg font-semibold text-black">Users</div>
+            <div className="text-3xl font-black text-black mb-2">{stats.users}</div>
+            <div className="text-base font-semibold text-black">Users</div>
           </div>
           
           <div className={`bg-neubrutalism-orange border-4 border-black shadow-neubrutalism-sm p-6 text-center transition-all duration-500 ${isAnimating ? 'animate-bounce' : ''}`}>
-            <div className="text-4xl font-black text-black mb-2">{stats.uptime}%</div>
-            <div className="text-lg font-semibold text-black">Uptime</div>
+            <div className="text-3xl font-black text-black mb-2">{stats.uptime}%</div>
+            <div className="text-base font-semibold text-black">Uptime</div>
           </div>
           
           <div className={`bg-neubrutalism-purple border-4 border-black shadow-neubrutalism-sm p-6 text-center transition-all duration-500 ${isAnimating ? 'animate-bounce' : ''}`}>
-            <div className="text-4xl font-black text-black mb-2">{stats.apiCalls}</div>
-            <div className="text-lg font-semibold text-black">API Calls</div>
+            <div className="text-3xl font-black text-black mb-2">{stats.apiCalls}</div>
+            <div className="text-base font-semibold text-black">API Calls</div>
           </div>
         </div>
 
         {/* Interactive Dashboard Components */}
         <div className="bg-white border-4 border-black shadow-neubrutalism p-8 mb-8">
-          <h2 className="text-3xl font-bold text-center mb-8 text-black">Interactive Dashboard</h2>
+          <h2 className="text-2xl font-bold text-center mb-8 text-black">Interactive Dashboard</h2>
           
           <div className="text-center">
             <button 

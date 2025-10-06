@@ -45,11 +45,11 @@ const Login: React.FC = () => {
       <div className="max-w-md w-full">
         {/* Login Form */}
         <div className="bg-white border-4 border-black shadow-neubrutalism p-8">
-          <h2 className="text-3xl font-bold text-center text-black mb-8">Login to ReactNetCorePOC</h2>
+          <h2 className="text-2xl font-bold text-center text-black mb-8">Login to ReactNetCorePOC</h2>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-lg font-semibold text-black mb-2">Email:</label>
+              <label htmlFor="email" className="block text-base font-semibold text-black mb-2">Email:</label>
               <input
                 type="email"
                 id="email"
@@ -57,12 +57,12 @@ const Login: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-lg"
+                className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-base"
               />
             </div>
             
             <div>
-              <label htmlFor="password" className="block text-lg font-semibold text-black mb-2">Password:</label>
+              <label htmlFor="password" className="block text-base font-semibold text-black mb-2">Password:</label>
               <input
                 type="password"
                 id="password"
@@ -70,7 +70,7 @@ const Login: React.FC = () => {
                 value={formData.password}
                 onChange={handleChange}
                 required
-                className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-lg"
+                className="w-full p-4 border-4 border-black shadow-neubrutalism-sm focus:shadow-neubrutalism focus:outline-none transition-all duration-200 text-base"
               />
             </div>
             
@@ -83,7 +83,7 @@ const Login: React.FC = () => {
                 onChange={handleChange}
                 className="w-5 h-5 accent-neubrutalism-yellow"
               />
-              <label htmlFor="rememberMe" className="text-lg font-semibold text-black">Remember me</label>
+              <label htmlFor="rememberMe" className="text-base font-semibold text-black">Remember me</label>
             </div>
             
             <button
@@ -96,7 +96,7 @@ const Login: React.FC = () => {
           
           {/* Demo Credentials */}
           <div className="mt-8 pt-6 border-t-4 border-black">
-            <h3 className="text-lg font-bold text-black mb-4">Demo Credentials</h3>
+            <h3 className="text-sm font-bold text-black mb-4">Demo Credentials</h3>
             <div className="bg-neubrutalism-yellow border-4 border-black shadow-neubrutalism-sm p-4">
               <p className="font-semibold text-black mb-2"><strong>Email:</strong> admin@example.com</p>
               <p className="font-semibold text-black"><strong>Password:</strong> P@ssword1234!</p>

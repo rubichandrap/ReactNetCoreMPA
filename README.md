@@ -17,6 +17,8 @@ This project features a bold, vibrant design system with:
 - **Strong typography** with Inter font
 - **Bold, unapologetic aesthetic**
 
+📸 **[View Design Proof & Screenshots](docs/design-proof/README.md)** - Visual documentation of the working application
+
 ## 🏗️ **Architecture**
 
 - **Multi-Page Application (MPA)** for SEO optimization
