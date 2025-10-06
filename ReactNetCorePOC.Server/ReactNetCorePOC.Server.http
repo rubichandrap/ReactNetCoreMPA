@@ -1,0 +1,6 @@
+@ReactNetCorePOC.Server_HostAddress = http://localhost:5104
+
+GET {{ReactNetCorePOC.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

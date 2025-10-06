@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - ReactNetCorePOC</title>
+    <meta name="description" content="@ViewBag.Description" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+
+    <!-- Open Graph tags for social media -->
+    <meta property="og:title" content="@ViewBag.Title - ReactNetCorePOC" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url"
+        content="@($"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}{Context.Request.QueryString}")" />
+
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="@ViewBag.Title - ReactNetCorePOC" />
+    <meta name="twitter:description" content="@ViewBag.Description" />
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-gray-50 font-sans">
+    <!-- React components will be hydrated here -->
+    <div id="react-root">
+        @RenderBody()
+    </div>
+
+    <!-- Load built React app -->
+    @await Html.PartialAsync("_ReactAssets")
+</body>
+
+</html>
