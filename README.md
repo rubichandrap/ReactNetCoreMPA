@@ -19,6 +19,44 @@ This project features a bold, vibrant design system with:
 
 📸 **[View Design Proof & Screenshots](docs/design-proof/README.md)** - Visual documentation of the working application
 
+## 📸 **Visual Documentation**
+
+### **Design Screenshots**
+
+- **[Homepage Design](docs/design-proof/screenshots/homepage-design.png)** - Neubrutalism homepage with gradient hero section and feature cards
+- **[About Page Design](docs/design-proof/screenshots/about-page-design.png)** - Technology stack showcase with three-column layout
+- **[Contact Page Design](docs/design-proof/screenshots/contact-page-design.png)** - Contact form with neubrutalism styling and contact information
+- **[Login Page Design](docs/design-proof/screenshots/login-page-design.png)** - Authentication form with demo credentials section
+
+### **JavaScript Loading Analysis**
+
+- **[Home Route JS Loading](docs/design-proof/screenshots/network-analysis/home-route-js.png)** - Network tab showing JS loading for home route
+- **[About Route JS Loading](docs/design-proof/screenshots/network-analysis/about-route-js.png)** - Network tab showing JS loading for about route
+- **[Contact Route JS Loading](docs/design-proof/screenshots/network-analysis/contact-route-js.png)** - Network tab showing JS loading for contact route
+- **[Login Route JS Loading](docs/design-proof/screenshots/network-analysis/login-route-js.png)** - Network tab showing JS loading for login route
+
+### **Key Features Demonstrated**
+
+✅ **Neubrutalism Design Implementation** - Bold colors, thick borders, dramatic shadows  
+✅ **Route-Specific JavaScript Loading** - Efficient modular loading per route  
+✅ **Performance Optimization** - 304 Not Modified responses, fast loading times  
+✅ **Responsive Design** - Mobile-first approach with Tailwind CSS  
+✅ **Interactive Components** - React state management and dynamic content  
+✅ **Optimized Text Scaling** - Improved readability at 100% zoom with reduced text sizes
+
+### **Text Scaling Improvements**
+
+The application has been optimized for better scaling with systematic text size reductions:
+
+- **Main headings**: `text-6xl` → `text-4xl` (Homepage hero)
+- **Page headers**: `text-5xl` → `text-3xl` (About, Contact pages)
+- **Section headings**: `text-3xl` → `text-2xl` (Dashboard, forms)
+- **Body text**: `text-2xl` → `text-lg` (Descriptions, content)
+- **Form labels**: `text-lg` → `text-base` (Input labels, navigation)
+- **Small text**: `text-lg` → `text-base` (Footer, metadata)
+
+This ensures the application is comfortable to use at 100% zoom while maintaining the bold neubrutalism aesthetic.
+
 ## 🏗️ **Architecture**
 
 - **Multi-Page Application (MPA)** for SEO optimization

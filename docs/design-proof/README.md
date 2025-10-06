@@ -5,6 +5,7 @@ This document provides visual proof of the working ReactNetCorePOC project, show
 ## Project Overview
 
 ReactNetCorePOC is a modern web application built with:
+
 - **Frontend**: React 19 with TypeScript and Vite
 - **Backend**: .NET 8 with ASP.NET Core
 - **Architecture**: Multi-Page Application (MPA)
@@ -16,6 +17,7 @@ ReactNetCorePOC is a modern web application built with:
 ### Neubrutalism Design Principles Applied
 
 The application follows neubrutalism design principles with:
+
 - **Bold, vibrant colors** (yellow, pink, teal, green, orange, purple)
 - **Thick, black borders** (4px borders throughout)
 - **Dramatic shadows** (offset black shadows for depth)
@@ -25,6 +27,7 @@ The application follows neubrutalism design principles with:
 ### Text Scaling Improvements
 
 Recent updates have optimized text sizes for better scaling at 100% zoom:
+
 - Main headings: `text-6xl` → `text-4xl`
 - Subheadings: `text-3xl` → `text-2xl`
 - Body text: `text-2xl` → `text-lg`
@@ -66,24 +69,44 @@ docs/design-proof/
 │       └── login-route-js.png   # Login route JS loading
 ```
 
+## 📸 **Available Screenshots**
+
+### **Design Screenshots**
+
+- **[Homepage Design](screenshots/homepage-design.png)** - Shows the complete homepage with neubrutalism design, gradient hero section, feature cards, and interactive components
+- **[About Page Design](screenshots/about-page-design.png)** - Displays the about page with technology stack information and three-column layout
+- **[Contact Page Design](screenshots/contact-page-design.png)** - Shows the contact form and contact information with consistent neubrutalism styling
+- **[Login Page Design](screenshots/login-page-design.png)** - Displays the login form with authentication fields and demo credentials section
+
+### **Network Analysis Screenshots**
+
+- **[Home Route JS Loading](screenshots/network-analysis/home-route-js.png)** - Network tab showing JavaScript loading behavior for the home route
+- **[About Route JS Loading](screenshots/network-analysis/about-route-js.png)** - Network tab showing JavaScript loading behavior for the about route
+- **[Contact Route JS Loading](screenshots/network-analysis/contact-route-js.png)** - Network tab showing JavaScript loading behavior for the contact route
+- **[Login Route JS Loading](screenshots/network-analysis/login-route-js.png)** - Network tab showing JavaScript loading behavior for the login route
+
 ## Key Features Demonstrated
 
 ### 1. Responsive Design
+
 - Mobile-first approach with Tailwind CSS
 - Grid layouts that adapt to different screen sizes
 - Consistent neubrutalism styling across all breakpoints
 
 ### 2. Interactive Components
+
 - React state management (counters, forms)
 - Dynamic content loading (weather data)
 - Smooth hover animations and transitions
 
 ### 3. SEO Optimization
+
 - Server-side rendering for better search engine visibility
 - Proper meta tags and structured content
 - Fast initial page loads
 
 ### 4. Authentication System
+
 - Cookie-based authentication
 - Role-based authorization
 - Secure login/logout functionality
@@ -91,18 +114,21 @@ docs/design-proof/
 ## Technical Implementation
 
 ### Frontend Architecture
+
 - **React 19**: Latest React features with concurrent rendering
 - **TypeScript**: Type-safe development
 - **Vite**: Fast build tool and development server
 - **Tailwind CSS**: Utility-first CSS framework
 
 ### Backend Architecture
+
 - **.NET 8**: Latest .NET framework
 - **ASP.NET Core**: Web API framework
 - **Swagger**: API documentation
 - **Cookie Authentication**: Secure session management
 
 ### Build Process
+
 - **Multi-Page Application**: Each route is a separate page
 - **Code Splitting**: JavaScript loads per route
 - **Asset Optimization**: Minified and compressed assets
