@@ -1,5 +1,8 @@
 #!/bin/bash
-set -e  # Exit on any error
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
 cd reactnetcorepoc.client
 npm run build
@@ -10,9 +13,10 @@ rm -rf wwwroot/assets
 rm -rf wwwroot/generated
 # Copy from dist/generated to wwwroot/generated
 mkdir -p wwwroot/generated
-cp -r ../reactnetcorepoc.client/dist/generated/* wwwroot/generated/
+cp -r ../reactnetcorepoc.client/dist/generated/* wwwroot/generated/ 2>/dev/null || true
 # Copy other files (index.html, manifest.json, etc.)
-cp ../reactnetcorepoc.client/dist/*.html wwwroot/
-cp ../reactnetcorepoc.client/dist/*.json wwwroot/
-cp ../reactnetcorepoc.client/dist/*.svg wwwroot/
+cp ../reactnetcorepoc.client/dist/*.html wwwroot/ 2>/dev/null || true
+cp ../reactnetcorepoc.client/dist/*.json wwwroot/ 2>/dev/null || true
+cp ../reactnetcorepoc.client/dist/*.svg wwwroot/ 2>/dev/null || true
+
 dotnet run

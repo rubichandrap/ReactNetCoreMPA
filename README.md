@@ -86,6 +86,13 @@ _Network tab showing JS loading for login route_
 
 ### Prerequisites
 
+#### **Option 1: Docker (Recommended)**
+
+- **Docker** ([Download](https://www.docker.com/products/docker-desktop/))
+- **Docker Compose** (comes with Docker Desktop)
+
+#### **Option 2: Local Development**
+
 - **.NET 8 SDK** ([Download](https://dotnet.microsoft.com/download/dotnet/8.0))
 - **Node.js 18+** ([Download](https://nodejs.org/))
 - **npm** (comes with Node.js)
@@ -97,6 +104,97 @@ _Network tab showing JS loading for login route_
 git clone <repository-url>
 cd ReactNetCorePOC
 ```
+
+## 🐳 **Docker Setup (Recommended)**
+
+### **Quick Start with Docker**
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd ReactNetCorePOC
+
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or run in detached mode
+docker-compose up --build -d
+```
+
+### **Docker Commands**
+
+#### **Development Mode**
+
+```bash
+# Run with development profile (includes React dev server)
+docker-compose --profile development up --build
+
+# Run in detached mode
+docker-compose --profile development up --build -d
+```
+
+#### **Production Mode**
+
+```bash
+# Run with production profile (includes Nginx reverse proxy)
+docker-compose --profile production up --build
+
+# Run in detached mode
+docker-compose --profile production up --build -d
+```
+
+#### **Stop Services**
+
+```bash
+# Stop all services
+docker-compose down
+
+# Stop and remove volumes
+docker-compose down -v
+
+# Stop and remove images
+docker-compose down --rmi all
+```
+
+#### **View Logs**
+
+```bash
+# View all logs
+docker-compose logs
+
+# View specific service logs
+docker-compose logs reactnetcorepoc-server
+docker-compose logs reactnetcorepoc-client
+docker-compose logs nginx
+```
+
+#### **Rebuild Services**
+
+```bash
+# Rebuild specific service
+docker-compose build reactnetcorepoc-server
+
+# Rebuild all services
+docker-compose build
+
+# Force rebuild without cache
+docker-compose build --no-cache
+```
+
+### **Docker Services**
+
+- **reactnetcorepoc-server**: .NET Core backend (Port 5104)
+- **reactnetcorepoc-client**: React frontend (Port 5173) - Development only
+- **nginx**: Reverse proxy (Port 80/443) - Production only
+
+### **Access Points**
+
+- **Application**: `http://localhost:5104` (Direct .NET server)
+- **With Nginx**: `http://localhost` (Production with reverse proxy)
+- **React Dev Server**: `http://localhost:5173` (Development only)
+- **API Documentation**: `http://localhost:5104/swagger`
+
+## 🛠️ **Local Development Setup**
 
 ### 2. Install Dependencies
 
@@ -578,6 +676,52 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🆘 **Troubleshooting**
 
+### **Docker Issues**
+
+#### **Docker Build Fails**
+
+```bash
+# Clean Docker cache
+docker system prune -a
+
+# Rebuild without cache
+docker-compose build --no-cache
+
+# Check Docker logs
+docker-compose logs reactnetcorepoc-server
+```
+
+#### **Port Conflicts**
+
+```bash
+# Check what's using the ports
+netstat -ano | findstr :5104
+netstat -ano | findstr :5173
+netstat -ano | findstr :80
+
+# Stop conflicting services
+docker-compose down
+```
+
+#### **Permission Issues (Linux/Mac)**
+
+```bash
+# Fix file permissions
+sudo chown -R $USER:$USER .
+
+# Run with proper permissions
+docker-compose up --build
+```
+
+#### **Docker Desktop Issues**
+
+```bash
+# Restart Docker Desktop
+# On Windows: Restart Docker Desktop application
+# On Mac: Restart Docker Desktop application
+# On Linux: sudo systemctl restart docker
+```
+
 ### **Common Issues**
 
 #### **PowerShell Execution Policy**
@@ -620,12 +764,17 @@ dotnet build
 
 ## 🎯 **Roadmap**
 
+- [x] **Docker containerization** with multi-stage builds
+- [x] **Docker Compose orchestration** for development and production
+- [x] **Nginx reverse proxy** configuration
 - [ ] **Real-time features** with SignalR
 - [ ] **Database integration** with Entity Framework
 - [ ] **Advanced authentication** with OAuth
 - [ ] **Mobile app** with React Native
 - [ ] **Microservices architecture** migration
 - [ ] **Kubernetes deployment** configuration
+- [ ] **Docker Swarm** cluster deployment
+- [ ] **CI/CD pipeline** with GitHub Actions
 
 ---
 

@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  # .NET Core Backend Service
+  reactnetcorepoc-server:
+    build:
+      context: .
+      dockerfile: ReactNetCorePOC.Server/Dockerfile
+    ports:
+      - "5104:80"
+      - "5105:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - ./ReactNetCorePOC.Server/appsettings.json:/app/appsettings.json:ro
+      - ./ReactNetCorePOC.Server/appsettings.Development.json:/app/appsettings.Development.json:ro
+    networks:
+      - reactnetcorepoc-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # React Frontend Service (Optional - for development)
+  reactnetcorepoc-client:
+    build:
+      context: ./reactnetcorepoc.client
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    networks:
+      - reactnetcorepoc-network
+    restart: unless-stopped
+    profiles:
+      - development
+
+  # Nginx Reverse Proxy (Optional - for production)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - reactnetcorepoc-server
+    networks:
+      - reactnetcorepoc-network
+    restart: unless-stopped
+    profiles:
+      - production
+
+networks:
+  reactnetcorepoc-network:
+    driver: bridge
+
+volumes:
+  reactnetcorepoc-data:

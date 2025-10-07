@@ -1,0 +1,35 @@
+# Build artifacts
+bin/
+obj/
+publish/
+
+# Logs
+logs/
+*.log
+
+# Runtime files
+wwwroot/generated/
+wwwroot/assets/
+
+# Test files
+**/test/
+**/tests/
+**/*.test.*
+**/*.spec.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

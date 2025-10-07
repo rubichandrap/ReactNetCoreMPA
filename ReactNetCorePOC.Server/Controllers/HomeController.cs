@@ -42,5 +42,17 @@ namespace ReactNetCorePOC.Server.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        [Route("/health")]
+        public IActionResult Health()
+        {
+            return Ok(new
+            {
+                status = "healthy",
+                timestamp = DateTime.UtcNow,
+                service = "ReactNetCorePOC.Server"
+            });
+        }
     }
 }
