@@ -212,101 +212,100 @@ cd reactnetcorepoc.client
 npm install
 ```
 
-### 3. Run Development Server
+### 3. Development Scripts
 
-#### **Method 1: Production Build (Recommended)**
+#### **Quick Start Scripts**
 
-**Option A: Manual Commands**
+We provide ready-to-use scripts for different development scenarios:
+
+**Build Scripts (Production-like)**
 
 ```bash
-# Build React app first (generates manifest automatically)
-cd reactnetcorepoc.client
-npm run build
-
-# Copy built files to server
-cd ../ReactNetCorePOC.Server
-Copy-Item ..\reactnetcorepoc.client\dist\* wwwroot\ -Recurse -Force
-
-# Run .NET server (serves built React app)
-dotnet run
-```
-
-**Option B: PowerShell Script**
-
-```powershell
-# Create and run build.ps1
-@"
-cd reactnetcorepoc.client
-npm run build
-cd ../ReactNetCorePOC.Server
-Copy-Item ..\reactnetcorepoc.client\dist\* wwwroot\ -Recurse -Force
-dotnet run
-"@ | Out-File -FilePath build.ps1 -Encoding UTF8
+# Windows
 .\build.ps1
-```
 
-**Option C: Shell Script (Linux/Mac)**
-
-```bash
-# Create and run build.sh
-cat > build.sh << 'EOF'
-#!/bin/bash
-cd reactnetcorepoc.client
-npm run build
-cd ../ReactNetCorePOC.Server
-cp -r ../reactnetcorepoc.client/dist/* wwwroot/
-dotnet run
-EOF
-chmod +x build.sh
+# Linux/macOS
 ./build.sh
 ```
 
-#### **Method 2: Development with Hot Reload**
-
-**Option A: Manual Commands**
+**Development Scripts (Hot Reload)**
 
 ```bash
-# Terminal 1: Start React dev server with hot reload
+# Windows
+.\dev.ps1
+
+# Linux/macOS
+./dev.sh
+```
+
+**Visual Studio Development**
+
+```bash
+# Windows
+.\dev-vs.ps1
+
+# Linux/macOS
+./dev-vs.sh
+```
+
+#### **What Each Script Does**
+
+**`build.ps1` / `build.sh`**
+
+- ✅ Installs React dependencies
+- ✅ Builds React app (copies assets to wwwroot automatically)
+- ✅ Installs .NET dependencies
+- ✅ Builds .NET project
+- ✅ **Perfect for production builds**
+
+**`dev.ps1` / `dev.sh`**
+
+- ✅ Starts React dev server with hot reload
+- ✅ Auto-builds and copies assets on file changes
+- ✅ Starts .NET server
+- ✅ **Perfect for full-stack development**
+
+**`dev-vs.ps1` / `dev-vs.sh`**
+
+- ✅ Starts React dev server with hot reload
+- ✅ Auto-builds and copies assets on file changes
+- ✅ **Perfect for Visual Studio debugging**
+
+#### **Manual Commands (Alternative)**
+
+**Production Build**
+
+```bash
+# Build React app (auto-copies assets to wwwroot)
+cd reactnetcorepoc.client
+npm run build
+
+# Build .NET project
+cd ../ReactNetCorePOC.Server
+dotnet build
+```
+
+**Development with Hot Reload**
+
+```bash
+# Terminal 1: Start React dev server
 cd reactnetcorepoc.client
 npm run dev
 
 # Terminal 2: Start .NET server
-cd ReactNetCorePOC.Server
-dotnet run
-```
-
-**Option B: PowerShell Script**
-
-```powershell
-# Create and run dev.ps1
-@"
-# Start React dev server in background
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd reactnetcorepoc.client; npm run dev"
-# Start .NET server
-cd ReactNetCorePOC.Server
-dotnet run
-"@ | Out-File -FilePath dev.ps1 -Encoding UTF8
-.\dev.ps1
-```
-
-**Option C: Shell Script (Linux/Mac)**
-
-```bash
-# Create and run dev.sh
-cat > dev.sh << 'EOF'
-#!/bin/bash
-# Start React dev server in background
-cd reactnetcorepoc.client
-npm run dev &
-# Start .NET server
 cd ../ReactNetCorePOC.Server
 dotnet run
-EOF
-chmod +x dev.sh
-./dev.sh
 ```
 
-**Note**: For development with hot reload, the React dev server runs on `http://localhost:5173` and the .NET server on `http://localhost:5104`. The .NET server will serve the React dev server for hot reload functionality.
+**Visual Studio Development**
+
+```bash
+# Terminal 1: Start React dev server
+cd reactnetcorepoc.client
+npm run dev
+
+# Visual Studio: Debug .NET server with F5
+```
 
 ### 4. Access the Application
 
@@ -580,6 +579,7 @@ dotnet ReactNetCorePOC.Server.dll
 - **Tailwind CSS** for styling
 - **TypeScript** for type safety
 - **Hot reload** for instant updates
+- **Custom Vite Plugin** for automatic asset copying
 
 #### **.NET Development**
 
@@ -587,6 +587,47 @@ dotnet ReactNetCorePOC.Server.dll
 - **Static file serving** for React build
 - **Cookie authentication** for security
 - **Swagger** for API documentation
+
+### **Build System**
+
+#### **Automatic Asset Management**
+
+Our build system automatically handles asset copying and manifest generation:
+
+**`build-manifest.js`**
+
+- ✅ Reads built `index.html` to extract asset names
+- ✅ Copies `index.html` to `wwwroot/index.html`
+- ✅ Copies all assets from `dist/generated/` to `wwwroot/generated/`
+- ✅ Generates `manifest.json` with asset paths
+- ✅ Creates `_ReactAssets.cshtml` for Razor views
+
+**Vite Plugin (`vite-plugin-build-manifest.ts`)**
+
+- ✅ Runs `build-manifest.js` on Vite start
+- ✅ Runs `build-manifest.js` on file changes
+- ✅ Integrates seamlessly with Vite dev server
+- ✅ No extra processes needed
+
+#### **Scripts Overview**
+
+| Script          | Purpose          | React         | .NET     | Hot Reload |
+| --------------- | ---------------- | ------------- | -------- | ---------- |
+| `build.ps1/sh`  | Production build | ✅ Build      | ✅ Build | ❌         |
+| `dev.ps1/sh`    | Full development | ✅ Dev Server | ✅ Run   | ✅         |
+| `dev-vs.ps1/sh` | VS debugging     | ✅ Dev Server | ❌       | ✅         |
+
+#### **Asset Flow**
+
+```
+React Source Files (src/)
+    ↓ (Vite Build)
+dist/generated/ (JS/CSS assets)
+    ↓ (build-manifest.js)
+wwwroot/generated/ (Copied assets)
+    ↓ (.NET Server)
+Served to Browser
+```
 
 ### **Production Settings**
 

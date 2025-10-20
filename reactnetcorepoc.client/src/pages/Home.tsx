@@ -25,7 +25,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-neubrutalism-yellow to-neubrutalism-pink border-b-4 border-black py-20 text-center">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl font-black text-black mb-6">Welcome to ReactNetCorePOC</h1>
+          <h1 className="text-4xl font-black text-black mb-6">Welcome to PowerApproval</h1>
           <p className="text-lg font-semibold text-black mb-8">A modern React + .NET Core application with neubrutalism design and SEO-friendly server-side rendering</p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a href="/Home/About" className="bg-white border-4 border-black shadow-neubrutalism-sm font-bold text-black px-8 py-4 hover:shadow-neubrutalism hover:translate-x-1 hover:translate-y-1 transition-all duration-200">

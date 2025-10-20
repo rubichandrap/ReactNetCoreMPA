@@ -46,9 +46,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// Fallback for SPA routes (for development)
+// Fallback for SPA routes
 if (app.Environment.IsDevelopment())
 {
+    // In development, serve from wwwroot (files updated by Vite plugin)
     app.MapFallbackToFile("/index.html");
 }
 else

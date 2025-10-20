@@ -308,4 +308,5 @@ secrets.json
 # Auto-generated React build folders
 ReactNetCorePOC.Server/wwwroot/generated/
 ReactNetCorePOC.Server/wwwroot/manifest.json
+ReactNetCorePOC.Server/wwwroot/index.html
 ReactNetCorePOC.Server/Views/Shared/_ReactAssets.cshtml
