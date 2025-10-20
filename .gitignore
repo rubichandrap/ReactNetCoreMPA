@@ -304,3 +304,8 @@ local/
 appsettings.Production.json
 appsettings.Staging.json
 secrets.json
+
+# Auto-generated React build folders
+ReactNetCorePOC.Server/wwwroot/generated/
+ReactNetCorePOC.Server/wwwroot/manifest.json
+ReactNetCorePOC.Server/Views/Shared/_ReactAssets.cshtml
