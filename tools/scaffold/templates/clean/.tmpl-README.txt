@@ -1,0 +1,3 @@
+This directory contains .tmpl files for a clean scaffold (Home page only).
+Non-Home controllers, views, and client pages are omitted.
+

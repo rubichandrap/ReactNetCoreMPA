@@ -1,0 +1,34 @@
+{
+  "name": "create-react-netcore-mpa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scaffold a React 19 + .NET 8 MPA with rename and --clean option",
+  "bin": {
+    "create-react-netcore-mpa": "bin/cli.js"
+  },
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubichandrap/ReactNetCoreMPA.git"
+  },
+  "keywords": [
+    "scaffold",
+    "react",
+    "dotnet",
+    ".net",
+    "aspnetcore",
+    "vite",
+    "typescript",
+    "mpa"
+  ],
+  "dependencies": {}
+}
+

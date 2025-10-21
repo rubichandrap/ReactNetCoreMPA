@@ -1,0 +1,6 @@
+This directory contains .tmpl files representing the base scaffold.
+Files will be renamed and content-replaced from:
+- ReactNetCorePOC -> <ProjectName>
+- ReactNetCorePOC.Server -> <ProjectName>.Server
+- reactnetcorepoc.client -> <projectname>.client
+

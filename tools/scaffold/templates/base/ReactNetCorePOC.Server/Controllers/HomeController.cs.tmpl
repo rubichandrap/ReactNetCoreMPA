@@ -1,0 +1,26 @@
+using Microsoft.AspNetCore.Mvc;
+
+namespace ReactNetCorePOC.Server.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            ViewBag.Title = "Welcome to ReactNetCorePOC";
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            ViewBag.Title = "About Us - ReactNetCorePOC";
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            ViewBag.Title = "Contact Us - ReactNetCorePOC";
+            return View();
+        }
+    }
+}
+
