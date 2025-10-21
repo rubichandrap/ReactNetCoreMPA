@@ -7,11 +7,25 @@ A modern **Multi-Page Application (MPA)** built with **React 19** and **.NET Cor
 Create your own React + .NET MPA project:
 
 ```bash
+# Clone and run locally
+git clone https://github.com/rubichandrap/ReactNetCoreMPA.git
+cd ReactNetCoreMPA/tools/scaffold
+
 # Full scaffold (all pages)
-npx https://github.com/rubichandrap/ReactNetCoreMPA.git/tools/scaffold MyNewApp
+node bin/cli.js MyNewApp
 
 # Clean scaffold (Home only)
-npx https://github.com/rubichandrap/ReactNetCoreMPA.git/tools/scaffold MyNewApp --clean
+node bin/cli.js MyNewApp --clean
+```
+
+Or use npx with the GitHub URL:
+
+```bash
+# Full scaffold (all pages)
+npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp
+
+# Clean scaffold (Home only)
+npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp --clean
 ```
 
 The scaffold creates a complete project structure with:

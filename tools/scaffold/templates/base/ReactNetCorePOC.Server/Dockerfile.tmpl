@@ -9,34 +9,34 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy project files
-COPY ["ReactNetCorePOC.Server/ReactNetCorePOC.Server.csproj", "ReactNetCorePOC.Server/"]
-COPY ["reactnetcorepoc.client/reactnetcorepoc.client.esproj", "reactnetcorepoc.client/"]
+COPY ["{{SERVER_NAME}}/{{SERVER_NAME}}.csproj", "{{SERVER_NAME}}/"]
+COPY ["{{CLIENT_DIR}}/{{CLIENT_DIR}}.esproj", "{{CLIENT_DIR}}/"]
 
 # Restore dependencies
-RUN dotnet restore "ReactNetCorePOC.Server/ReactNetCorePOC.Server.csproj"
+RUN dotnet restore "{{SERVER_NAME}}/{{SERVER_NAME}}.csproj"
 
 # Copy all source files
 COPY . .
 
 # Build the React client first
-WORKDIR /src/reactnetcorepoc.client
+WORKDIR /src/{{CLIENT_DIR}}
 RUN npm install
 RUN npm run build
 
 # Copy built React files to server wwwroot
-WORKDIR /src/ReactNetCorePOC.Server
+WORKDIR /src/{{SERVER_NAME}}
 RUN mkdir -p wwwroot/generated
-RUN cp -r ../reactnetcorepoc.client/dist/generated/* wwwroot/generated/ 2>/dev/null || true
-RUN cp ../reactnetcorepoc.client/dist/*.html wwwroot/ 2>/dev/null || true
-RUN cp ../reactnetcorepoc.client/dist/*.json wwwroot/ 2>/dev/null || true
-RUN cp ../reactnetcorepoc.client/dist/*.svg wwwroot/ 2>/dev/null || true
+RUN cp -r ../{{CLIENT_DIR}}/dist/generated/* wwwroot/generated/ 2>/dev/null || true
+RUN cp ../{{CLIENT_DIR}}/dist/*.html wwwroot/ 2>/dev/null || true
+RUN cp ../{{CLIENT_DIR}}/dist/*.json wwwroot/ 2>/dev/null || true
+RUN cp ../{{CLIENT_DIR}}/dist/*.svg wwwroot/ 2>/dev/null || true
 
 # Build the .NET application
-RUN dotnet build "ReactNetCorePOC.Server.csproj" -c Release -o /app/build
+RUN dotnet build "{{SERVER_NAME}}.csproj" -c Release -o /app/build
 
 # Publish the application
 FROM build AS publish
-RUN dotnet publish "ReactNetCorePOC.Server.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "{{SERVER_NAME}}.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Final stage
 FROM base AS final
@@ -47,5 +47,5 @@ COPY --from=publish /app/publish .
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
 USER appuser
 
-ENTRYPOINT ["dotnet", "ReactNetCorePOC.Server.dll"]
+ENTRYPOINT ["dotnet", "{{SERVER_NAME}}.dll"]
 

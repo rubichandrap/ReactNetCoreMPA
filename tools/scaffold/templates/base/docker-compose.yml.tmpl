@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  reactnetcorepoc-server:
+  {{PROJECT_NAME}}-server:
     build:
       context: .
-      dockerfile: ReactNetCorePOC.Server/Dockerfile
+      dockerfile: {{SERVER_NAME}}/Dockerfile
     ports:
       - "5104:80"
       - "5105:443"
@@ -12,20 +12,20 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
     volumes:
-      - ./ReactNetCorePOC.Server/appsettings.json:/app/appsettings.json:ro
-      - ./ReactNetCorePOC.Server/appsettings.Development.json:/app/appsettings.Development.json:ro
+      - ./{{SERVER_NAME}}/appsettings.json:/app/appsettings.json:ro
+      - ./{{SERVER_NAME}}/appsettings.Development.json:/app/appsettings.Development.json:ro
     networks:
-      - reactnetcorepoc-network
+      - {{PROJECT_NAME}}-network
     restart: unless-stopped
 
-  reactnetcorepoc-client:
+  {{PROJECT_NAME}}-client:
     build:
-      context: ./reactnetcorepoc.client
+      context: ./{{CLIENT_DIR}}
       dockerfile: Dockerfile
     ports:
       - "5173:80"
     networks:
-      - reactnetcorepoc-network
+      - {{PROJECT_NAME}}-network
     restart: unless-stopped
     profiles:
       - development
@@ -38,14 +38,14 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
-      - reactnetcorepoc-server
+      - {{PROJECT_NAME}}-server
     networks:
-      - reactnetcorepoc-network
+      - {{PROJECT_NAME}}-network
     restart: unless-stopped
     profiles:
       - production
 
 networks:
-  reactnetcorepoc-network:
+  {{PROJECT_NAME}}-network:
     driver: bridge
 

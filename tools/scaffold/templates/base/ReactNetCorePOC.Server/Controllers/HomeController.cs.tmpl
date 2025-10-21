@@ -1,24 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ReactNetCorePOC.Server.Controllers
+namespace {{SERVER_NAME}}.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
-            ViewBag.Title = "Welcome to ReactNetCorePOC";
+            ViewBag.Title = "Welcome to {{PROJECT_NAME}}";
             return View();
         }
 
         public IActionResult About()
         {
-            ViewBag.Title = "About Us - ReactNetCorePOC";
+            ViewBag.Title = "About Us - {{PROJECT_NAME}}";
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewBag.Title = "Contact Us - ReactNetCorePOC";
+            ViewBag.Title = "Contact Us - {{PROJECT_NAME}}";
             return View();
         }
     }

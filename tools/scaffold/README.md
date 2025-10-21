@@ -4,18 +4,20 @@ Scaffold a React 19 + .NET 8 MPA. Accepts a project name and optional `--clean`.
 
 ### Usage
 
-```bash
-npx https://github.com/rubichandrap/ReactNetCoreMPA.git/tools/scaffold MyNewApp
-npx https://github.com/rubichandrap/ReactNetCoreMPA.git/tools/scaffold MyNewApp --clean
-```
-
-Or clone and run locally:
+**Option 1: Clone and run locally**
 
 ```bash
 git clone https://github.com/rubichandrap/ReactNetCoreMPA.git
 cd ReactNetCoreMPA/tools/scaffold
 node bin/cli.js MyNewApp
 node bin/cli.js MyNewApp --clean
+```
+
+**Option 2: Use npx with GitHub**
+
+```bash
+npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp
+npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp --clean
 ```
 
 ### What you get

@@ -16,14 +16,14 @@ const manifest = {
   css: cssMatch ? cssMatch[1] : null
 };
 
-const generatedAssetsPath = path.join(__dirname, '..', 'ReactNetCorePOC.Server', 'wwwroot', 'generated');
+const generatedAssetsPath = path.join(__dirname, '..', '{{SERVER_NAME}}', 'wwwroot', 'generated');
 if (fs.existsSync(generatedAssetsPath)) {
   fs.rmSync(generatedAssetsPath, { recursive: true, force: true });
 }
 fs.mkdirSync(generatedAssetsPath, { recursive: true });
 
 const distPath = path.join(__dirname, 'dist');
-const wwwrootPath = path.join(__dirname, '..', 'ReactNetCorePOC.Server', 'wwwroot');
+const wwwrootPath = path.join(__dirname, '..', '{{SERVER_NAME}}', 'wwwroot');
 
 const indexSrc = path.join(distPath, 'index.html');
 const indexDest = path.join(wwwrootPath, 'index.html');
@@ -40,10 +40,10 @@ const updatedManifest = {
   css: manifest.css ? manifest.css.replace('/assets/', '/generated/') : null
 };
 
-const manifestPath = path.join(__dirname, '..', 'ReactNetCorePOC.Server', 'wwwroot', 'manifest.json');
+const manifestPath = path.join(__dirname, '..', '{{SERVER_NAME}}', 'wwwroot', 'manifest.json');
 fs.writeFileSync(manifestPath, JSON.stringify(updatedManifest, null, 2));
 
-const scriptsPath = path.join(__dirname, '..', 'ReactNetCorePOC.Server', 'Views', 'Shared', '_ReactAssets.cshtml');
+const scriptsPath = path.join(__dirname, '..', '{{SERVER_NAME}}', 'Views', 'Shared', '_ReactAssets.cshtml');
 const scriptsContent = `@* Auto-generated *@
 ${updatedManifest.js ? `<script type="module" crossorigin src="${updatedManifest.js}"></script>` : ''}
 ${updatedManifest.css ? `<link rel="stylesheet" crossorigin href="${updatedManifest.css}">` : ''}`;
