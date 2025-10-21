@@ -1,0 +1,99 @@
+# {{PROJECT_NAME}}
+
+A clean **Multi-Page Application (MPA)** built with **React 19** and **.NET Core 8** - Home page only.
+
+## 🚀 Quick Start
+
+### Prerequisites
+- **Node.js** 18+ 
+- **.NET 8 SDK**
+- **npm** or **yarn**
+
+### Setup
+```bash
+# 1. Restore .NET dependencies
+cd {{SERVER_NAME}}
+dotnet restore
+
+# 2. Install React dependencies
+cd ../{{CLIENT_DIR}}
+npm install
+```
+
+### Development
+```bash
+# Terminal 1: Start React dev server (hot reload)
+cd {{CLIENT_DIR}}
+npm run dev
+
+# Terminal 2: Start .NET server
+cd {{SERVER_NAME}}
+dotnet run
+```
+
+Visit: `http://localhost:5104`
+
+### Production Build
+```bash
+# 1. Build React app
+cd {{CLIENT_DIR}}
+npm run build
+
+# 2. Build .NET app
+cd ../{{SERVER_NAME}}
+dotnet publish -c Release -o ./publish
+```
+
+## 📁 Project Structure
+
+```
+{{PROJECT_NAME}}/
+├── {{SERVER_NAME}}/              # .NET Core Backend
+│   ├── Controllers/
+│   │   └── HomeController.cs     # Home controller only
+│   ├── Views/
+│   │   └── Home/
+│   │       └── Index.cshtml      # Home page view
+│   └── wwwroot/                  # Static files
+└── {{CLIENT_DIR}}/               # React Frontend
+    ├── src/
+    │   ├── pages/
+    │   │   └── Home.tsx          # Home page component
+    │   ├── App.tsx               # Simple app
+    │   └── main.tsx              # Entry point
+    └── package.json
+```
+
+## 🛠️ Available Scripts
+
+### React Client
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+### .NET Server
+- `dotnet run` - Start development server
+- `dotnet build` - Build project
+- `dotnet publish` - Publish for production
+
+## 📝 Notes
+
+- **Clean scaffold**: Only includes Home page functionality
+- **Minimal setup**: No authentication, routing, or additional pages
+- **Perfect for**: Starting a new project or learning the architecture
+- **Expandable**: Add more controllers, views, and React pages as needed
+
+## 🚀 Next Steps
+
+To add more pages:
+1. Add new controllers in `{{SERVER_NAME}}/Controllers/`
+2. Add new views in `{{SERVER_NAME}}/Views/`
+3. Add new React pages in `{{CLIENT_DIR}}/src/pages/`
+4. Update routing in `{{CLIENT_DIR}}/src/App.tsx`
+
+## 🆘 Troubleshooting
+
+### Common Issues
+- **Port conflicts**: Check if ports 5104/5173 are in use
+- **Build errors**: Run `dotnet clean` and `npm install` again
+- **Asset loading**: Ensure `build-manifest.js` ran successfully
