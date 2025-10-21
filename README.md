@@ -9,23 +9,22 @@ Create your own React + .NET MPA project:
 ```bash
 # Clone and run locally
 git clone https://github.com/rubichandrap/ReactNetCoreMPA.git
-cd ReactNetCoreMPA/tools/scaffold
 
 # Full scaffold (all pages)
-node bin/cli.js MyNewApp
+node command/cli.js MyNewApp
 
 # Clean scaffold (Home only)
-node bin/cli.js MyNewApp --clean
+node command/cli.js MyNewApp --clean
 ```
 
 Or use npx with the GitHub URL:
 
 ```bash
 # Full scaffold (all pages)
-npx github:rubichandrap/ReactNetCoreMPA#path:tools/scaffold MyNewApp
+npx github:rubichandrap/ReactNetCoreMPA MyNewApp
 
 # Clean scaffold (Home only)
-npx github:rubichandrap/ReactNetCoreMPA#path:tools/scaffold MyNewApp --clean
+npx github:rubichandrap/ReactNetCoreMPA MyNewApp --clean
 ```
 
 The scaffold creates a complete project structure with:
@@ -35,8 +34,6 @@ The scaffold creates a complete project structure with:
 - ✅ **Client**: `<projectname>.client` (Vite + React 19 + TypeScript)
 - ✅ **Docker**: Dockerfiles, docker-compose, nginx config
 - ✅ **Build**: Manifest-based asset injection
-
-📖 **[Full Scaffold Documentation](tools/scaffold/README.md)**
 
 ![ReactNetCorePOC](https://img.shields.io/badge/ReactNetCorePOC-v1.0.0-brightgreen)
 ![.NET Core](https://img.shields.io/badge/.NET%20Core-8.0-blue)
