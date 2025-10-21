@@ -2,6 +2,28 @@
 
 A modern **Multi-Page Application (MPA)** built with **React 19** and **.NET Core 8**, featuring **neubrutalism design** and **SEO-friendly server-side rendering**.
 
+## 🚀 **Quick Start with Scaffold**
+
+Create your own React + .NET MPA project:
+
+```bash
+# Full scaffold (all pages)
+npx https://github.com/rubichandrap/ReactNetCoreMPA.git/tools/scaffold MyNewApp
+
+# Clean scaffold (Home only)
+npx https://github.com/rubichandrap/ReactNetCoreMPA.git/tools/scaffold MyNewApp --clean
+```
+
+The scaffold creates a complete project structure with:
+
+- ✅ **Solution**: `<ProjectName>.sln`
+- ✅ **Server**: `<ProjectName>.Server` (.NET 8, MVC, Views)
+- ✅ **Client**: `<projectname>.client` (Vite + React 19 + TypeScript)
+- ✅ **Docker**: Dockerfiles, docker-compose, nginx config
+- ✅ **Build**: Manifest-based asset injection
+
+📖 **[Full Scaffold Documentation](tools/scaffold/README.md)**
+
 ![ReactNetCorePOC](https://img.shields.io/badge/ReactNetCorePOC-v1.0.0-brightgreen)
 ![.NET Core](https://img.shields.io/badge/.NET%20Core-8.0-blue)
 ![React](https://img.shields.io/badge/React-19.1.1-61dafb)
