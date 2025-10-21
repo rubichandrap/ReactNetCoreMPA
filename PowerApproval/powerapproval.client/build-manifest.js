@@ -1,0 +1,52 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const indexPath = path.join(__dirname, 'dist', 'index.html');
+const indexContent = fs.readFileSync(indexPath, 'utf8');
+
+const jsMatch = indexContent.match(/src="([^\"]*\.js)"/);
+const cssMatch = indexContent.match(/href="([^\"]*\.css)"/);
+
+const manifest = {
+  js: jsMatch ? jsMatch[1] : null,
+  css: cssMatch ? cssMatch[1] : null
+};
+
+const generatedAssetsPath = path.join(__dirname, '..', 'PowerApproval.Server', 'wwwroot', 'generated');
+if (fs.existsSync(generatedAssetsPath)) {
+  fs.rmSync(generatedAssetsPath, { recursive: true, force: true });
+}
+fs.mkdirSync(generatedAssetsPath, { recursive: true });
+
+const distPath = path.join(__dirname, 'dist');
+const wwwrootPath = path.join(__dirname, '..', 'PowerApproval.Server', 'wwwroot');
+
+const indexSrc = path.join(distPath, 'index.html');
+const indexDest = path.join(wwwrootPath, 'index.html');
+if (fs.existsSync(indexSrc)) fs.copyFileSync(indexSrc, indexDest);
+
+const distAssetsPath = path.join(distPath, 'generated');
+if (fs.existsSync(distAssetsPath)) {
+  const files = fs.readdirSync(distAssetsPath);
+  files.forEach(file => fs.copyFileSync(path.join(distAssetsPath, file), path.join(generatedAssetsPath, file)));
+}
+
+const updatedManifest = {
+  js: manifest.js ? manifest.js.replace('/assets/', '/generated/') : null,
+  css: manifest.css ? manifest.css.replace('/assets/', '/generated/') : null
+};
+
+const manifestPath = path.join(__dirname, '..', 'PowerApproval.Server', 'wwwroot', 'manifest.json');
+fs.writeFileSync(manifestPath, JSON.stringify(updatedManifest, null, 2));
+
+const scriptsPath = path.join(__dirname, '..', 'PowerApproval.Server', 'Views', 'Shared', '_ReactAssets.cshtml');
+const scriptsContent = `@* Auto-generated *@
+${updatedManifest.js ? `<script type="module" crossorigin src="${updatedManifest.js}"></script>` : ''}
+${updatedManifest.css ? `<link rel="stylesheet" crossorigin href="${updatedManifest.css}">` : ''}`;
+
+fs.writeFileSync(scriptsPath, scriptsContent);
+

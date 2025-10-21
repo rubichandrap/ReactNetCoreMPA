@@ -22,10 +22,10 @@ Or use npx with the GitHub URL:
 
 ```bash
 # Full scaffold (all pages)
-npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp
+npx github:rubichandrap/ReactNetCoreMPA#path:tools/scaffold MyNewApp
 
 # Clean scaffold (Home only)
-npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp --clean
+npx github:rubichandrap/ReactNetCoreMPA#path:tools/scaffold MyNewApp --clean
 ```
 
 The scaffold creates a complete project structure with:

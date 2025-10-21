@@ -13,11 +13,13 @@ node bin/cli.js MyNewApp
 node bin/cli.js MyNewApp --clean
 ```
 
-**Option 2: Use npx with GitHub**
+**Option 2: Direct download and run**
 
 ```bash
-npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp
-npx github:rubichandrap/ReactNetCoreMPA/tools/scaffold MyNewApp --clean
+# Download and run in one command
+curl -L https://github.com/rubichandrap/ReactNetCoreMPA/archive/main.tar.gz | tar -xz
+cd ReactNetCoreMPA-main/tools/scaffold
+node bin/cli.js MyNewApp --clean
 ```
 
 ### What you get
